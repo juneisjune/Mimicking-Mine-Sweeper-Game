@@ -17,7 +17,7 @@ public:
 	void processInput()
 	{
 		char key;
-	//	if (!_kbhit() == 0)  return ;
+		if (~_kbhit() == 0)  return ;
 		Borland::GotoXY(0, 21);
 		key = _getch();
 		//스크린 범위 내에 있는 것도 구현해야

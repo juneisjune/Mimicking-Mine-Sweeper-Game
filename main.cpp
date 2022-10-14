@@ -12,11 +12,11 @@
 using namespace std;
 
 int main()
-{   깃깃깃깃123123
+{
 	Player player{ 2, 4 };
-	Enemy enemy{ 10, 10 };
+	Enemy enemy{ 5, 5 };
 
-	Screen screen(20, 81);
+	Screen screen(10, 10);
 
 
 	while (1)

@@ -7,6 +7,7 @@ using namespace std;
 
 class GameObject
 {
+private:
 	Position pos;
 	char* shape;
 	Dimension dim;

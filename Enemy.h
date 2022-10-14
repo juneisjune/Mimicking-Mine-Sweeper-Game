@@ -33,9 +33,11 @@ public:
             pos.x--; pos.y++;
             break;            
         case 7:
-            pos.x++; pos.y++;
+            pos.y++;
             break;
         case 8:
+            pos.x++; pos.y++;
+
             break;
         }
 
