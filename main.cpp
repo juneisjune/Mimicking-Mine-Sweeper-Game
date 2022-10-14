@@ -13,24 +13,25 @@ using namespace std;
 
 int main()
 {
-	Player player{ 2, 4 };
-	Enemy enemy{ 5, 5 };
-
 	Screen screen(10, 10);
 
+	Player player{ 2, 4, screen };
 
+	Enemy enemy1{ rand() % 10, rand() % 10, screen };
+	
 	while (1)
 	{
 		screen.clear();
 
 		screen.draw(player.getPos(), player.getShape());
-		screen.draw(enemy.getPos(), enemy.getShape());
+		screen.draw(enemy1.getPos(), enemy1.getShape());
 
 		screen.render();
+		
+		
 		player.update();
-		enemy.update();
-		player.processInput();
+		enemy1.update();
 	}
-
+	
 	return 0;
 }

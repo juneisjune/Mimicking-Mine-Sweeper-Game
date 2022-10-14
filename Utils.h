@@ -5,7 +5,8 @@
 #include <Windows.h>
 
 
-struct Position {
+struct Position 
+{
 	int x;
 	int y;
 

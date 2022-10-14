@@ -1,14 +1,15 @@
 #pragma once
+#include <conio.h>
 #include "GameObject.h"
-class Enemy : public GameObject
+class Enemy :
+    public GameObject
 {
 
-public:
-    Enemy(int x, int y) : GameObject('*', x, y) {}
-
-    void update() override
+    void walkRandomly()
     {
         Position pos = getPos();
+
+
         int idx = rand() % 9;
         switch (idx)
         {
@@ -22,7 +23,7 @@ public:
             pos.x++; pos.y--;
             break;
         case 3:
-            pos.x--; 
+            pos.x--;
             break;
         case 4:
             break;
@@ -31,17 +32,59 @@ public:
             break;
         case 6:
             pos.x--; pos.y++;
-            break;            
+            break;
         case 7:
             pos.y++;
             break;
         case 8:
             pos.x++; pos.y++;
-
             break;
         }
 
-        setPos(pos);//원본이 아니니까 내가 복사한 정보를 원본에다가 수정
+        setPos(pos);
+    }
+
+    void processInput()
+    {
+        int key;
+
+        if (!_kbhit()) return;
+
+        Borland::GotoXY(0, 21);
+        key = _getch();
+
+        Borland::GotoXY(1, 24);
+        printf("enemy key is %c %x %d\n", key, key, key);
+
+        Position pos = getPos();
+        /*
+        switch (key) 
+        {
+        case 'w':
+            pos.y--;
+            break;
+        case 'a':
+            pos.x--;
+            break;
+        case 's':
+            pos.y++;
+            break;
+        case 'd':
+            pos.x++;
+            break;
+        }
+        */
+
+        setPos(pos);
+
+    }
+
+public:
+    Enemy(int x, int y, Screen& screen) : GameObject('*', x, y, screen) {}
+
+    void update() override 
+    {
+        processInput();
     }
 };
 
