@@ -12,7 +12,7 @@
 using namespace std;
 
 int main()
-{
+{   깃깃깃깃
 	Player player{ 2, 4 };
 	Enemy enemy{ 10, 10 };
 
